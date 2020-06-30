@@ -71,6 +71,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvBody;
         TextView tvScreenName;
         TextView tvDate;
+        ImageView ivMedia;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +80,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvBody = itemView.findViewById(R.id.tvBody);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvDate = itemView.findViewById(R.id.tvDate);
+            ivMedia = itemView.findViewById(R.id.ivMedia);
+            ivMedia.setVisibility(View.GONE);
         }
 
         public void bind(Tweet tweet) {
@@ -88,6 +91,12 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
             String date = getRelativeTimeAgo(tweet.createdAt);
             tvDate.setText(date);
+
+            //check that there is media and set media
+            if(tweet.mediaUrl != null){
+                ivMedia.setVisibility(View.VISIBLE);
+                Glide.with(context).load(tweet.mediaUrl).into(ivMedia);
+            }
         }
 
         public String getRelativeTimeAgo(String rawJsonDate) {
