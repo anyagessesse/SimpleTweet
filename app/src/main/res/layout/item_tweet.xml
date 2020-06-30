@@ -54,7 +54,7 @@
     <ImageView
         android:id="@+id/ivMedia"
         android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_height="200dp"
         android:layout_below="@+id/tvDate"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"

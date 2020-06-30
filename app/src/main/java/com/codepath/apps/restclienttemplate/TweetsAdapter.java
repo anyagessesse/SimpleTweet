@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.text.ParseException;
@@ -81,10 +84,11 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvDate = itemView.findViewById(R.id.tvDate);
             ivMedia = itemView.findViewById(R.id.ivMedia);
-            ivMedia.setVisibility(View.GONE);
         }
 
         public void bind(Tweet tweet) {
+            //assume there is no image
+            ivMedia.setVisibility(View.GONE);
             tvBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.screenName);
             Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
@@ -95,7 +99,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             //check that there is media and set media
             if(tweet.mediaUrl != null){
                 ivMedia.setVisibility(View.VISIBLE);
-                Glide.with(context).load(tweet.mediaUrl).into(ivMedia);
+                Glide.with(context).load(tweet.mediaUrl).apply(new RequestOptions().transform(new CenterCrop(),new RoundedCorners(30))).into(ivMedia);
             }
         }
 

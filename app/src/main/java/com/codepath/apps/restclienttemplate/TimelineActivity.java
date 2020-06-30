@@ -119,16 +119,13 @@ public class TimelineActivity extends AppCompatActivity {
                 JSONArray jsonArray = json.jsonArray;
                 try {
                     adapter.clear();
-
                     tweets.addAll(Tweet.fromJsonArray(jsonArray));
-                    adapter.addAll(tweets);
                     adapter.notifyDataSetChanged();
 
                     swipeContainer.setRefreshing(false);
                 } catch (JSONException e) {
                     Log.e(TAG,"Json exception",e);
                 }
-
             }
 
             @Override
