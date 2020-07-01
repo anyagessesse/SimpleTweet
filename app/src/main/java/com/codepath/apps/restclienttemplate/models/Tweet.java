@@ -8,11 +8,14 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.codepath.apps.restclienttemplate.TimelineActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcel;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +55,7 @@ public class Tweet {
         User user = User.fromJson(jsonObject.getJSONObject("user"));
         tweet.user = user;
         tweet.userId = user.id;
+
 
         //get media Url from json
         JSONObject entities = jsonObject.getJSONObject("entities");
