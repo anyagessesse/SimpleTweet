@@ -113,6 +113,13 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
                 long dateMillis = sf.parse(rawJsonDate).getTime();
                 relativeDate = DateUtils.getRelativeTimeSpanString(dateMillis,
                         System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
+
+                //formatting date to look like twitter
+                relativeDate = relativeDate.replace(" minutes ago", "m");
+                relativeDate = relativeDate.replace(" hours ago","h");
+                relativeDate = relativeDate.replace(" minute ago", "m");
+                relativeDate = relativeDate.replace(" hour ago","h");
+                //TODO add day if needed
             } catch (ParseException e) {
                 e.printStackTrace();
             }
