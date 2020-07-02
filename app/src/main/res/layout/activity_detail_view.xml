@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".DetailViewActivity">
 
+    <ImageView
+        android:id="@+id/ivMedia2"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/tvBody"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImage2"
+        app:layout_constraintTop_toBottomOf="@+id/tvBody2"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/ivProfileImage2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvScreenName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImage2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="anyagess" />
+
+    <TextView
+        android:id="@+id/tvBody2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvScreenName"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:autoLink="all"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImage2"
+        app:layout_constraintTop_toBottomOf="@+id/tvScreenName2"
+        tools:text="This is a tweet! " />
 </androidx.constraintlayout.widget.ConstraintLayout>
