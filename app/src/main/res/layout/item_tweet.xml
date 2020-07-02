@@ -25,6 +25,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textColor="@android:color/white"
         android:textStyle="bold"
         tools:text="anyagess" />
 
@@ -37,6 +38,7 @@
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:autoLink="all"
+        android:textColor="@android:color/white"
         tools:text="This is a tweet! " />
 
     <TextView
@@ -48,6 +50,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/tvScreenName"
+        android:textColor="@android:color/white"
         android:textSize="10sp"
         tools:text="5m" />
 
