@@ -4,7 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_mode"
     tools:context=".DetailViewActivity">
+
+    <TextView
+        android:id="@+id/tvDate2"
+        android:layout_width="31dp"
+        android:layout_height="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/tvScreenName"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tvScreenName2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="5m" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/ivMedia"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/ic_vector_retweet_stroke"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivMedia2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/ivMedia"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:background="@drawable/ic_vector_heart_stroke"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivMedia2" />
 
     <ImageView
         android:id="@+id/ivMedia2"
@@ -14,7 +56,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
+        android:background="@color/dark_mode"
         android:paddingBottom="5dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImage2"
         app:layout_constraintTop_toBottomOf="@+id/tvBody2"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
@@ -39,6 +83,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImage2"
         app:layout_constraintTop_toTopOf="parent"
@@ -53,6 +98,7 @@
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:autoLink="all"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImage2"
         app:layout_constraintTop_toBottomOf="@+id/tvScreenName2"
         tools:text="This is a tweet! " />

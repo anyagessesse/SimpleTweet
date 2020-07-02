@@ -6,13 +6,13 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
-        <item name="android:textColorPrimary">#ff17bf63</item>
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="colorPrimary">#162129</item>
+        <item name="android:textColor">#801da1f2</item>
     </style>
 
 </resources>

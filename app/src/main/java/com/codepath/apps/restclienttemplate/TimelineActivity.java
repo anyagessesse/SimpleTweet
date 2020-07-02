@@ -44,7 +44,6 @@ public class TimelineActivity extends AppCompatActivity {
     TweetsAdapter adapter;
     SwipeRefreshLayout swipeContainer;
     MenuItem miActionProgressItem;
-    RelativeLayout tweet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +97,6 @@ public class TimelineActivity extends AppCompatActivity {
             }
         });
 
-        //if a tweet is clicked, go to detail view
-        tweet = findViewById(R.id.rlTweet);
-        //tweet.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-
-        //    }
-        //});
     }
 
     @Override

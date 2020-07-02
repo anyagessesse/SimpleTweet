@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+
+import org.parceler.Parcels;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -68,7 +71,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     }
 
     //define a viewholder
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView ivProfileImage;
         TextView tvBody;
@@ -84,6 +87,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvDate = itemView.findViewById(R.id.tvDate);
             ivMedia = itemView.findViewById(R.id.ivMedia);
+
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Tweet tweet) {
@@ -101,6 +106,24 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
                 ivMedia.setVisibility(View.VISIBLE);
                 Glide.with(context).load(tweet.mediaUrl).apply(new RequestOptions().transform(new CenterCrop(),new RoundedCorners(30))).into(ivMedia);
             }
+        }
+
+        @Override
+        public void onClick(View view){
+
+            //get item position and check if valid
+            int pos = getAdapterPosition();
+            if(pos != RecyclerView.NO_POSITION) {
+                //get movie at this position
+                Tweet tweet = tweets.get(pos);
+                //create intent for the new activity
+                Intent intent = new Intent(context, DetailViewActivity.class);
+                //serialize using parceler, use short name as key
+                intent.putExtra("tweet", Parcels.wrap(tweet));
+                //show the activity
+                context.startActivity(intent);
+            }
+
         }
 
         public String getRelativeTimeAgo(String rawJsonDate) {
