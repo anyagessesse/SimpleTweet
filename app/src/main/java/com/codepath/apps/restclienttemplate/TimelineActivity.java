@@ -116,8 +116,6 @@ public class TimelineActivity extends AppCompatActivity {
         // Store instance of the menu item containing progress
         miActionProgressItem = menu.findItem(R.id.miActionProgress);
 
-        showProgressBar();
-
         // Return to finish
         return super.onPrepareOptionsMenu(menu);
     }
