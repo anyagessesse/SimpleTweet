@@ -45,6 +45,8 @@ public class TimelineActivity extends AppCompatActivity {
     TweetsAdapter adapter;
     SwipeRefreshLayout swipeContainer;
     MenuItem miActionProgressItem;
+    private EndlessRecyclerviewScrollListener scrollListener;
+    long maxId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +76,19 @@ public class TimelineActivity extends AppCompatActivity {
         adapter = new TweetsAdapter(this,tweets);
 
         //recyclerview setup: layout manager and the adapter
-        rvTweets.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvTweets.setLayoutManager(linearLayoutManager);
         rvTweets.setAdapter(adapter);
+
+        //scrollListener = new EndlessRecyclerviewScrollListener(linearLayoutManager){
+        //     @Override
+        //    public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+        //        // Triggered only when new data needs to be appended to the list
+        //        // Add whatever code is needed to append new items to the bottom of the list
+        //        loadNextDataFromApi(page);
+        //    }
+        //};
+        //rvTweets.addOnScrollListener(scrollListener);
 
         //add dividing lines
         rvTweets.addItemDecoration(new DividerItemDecoration(rvTweets.getContext(), DividerItemDecoration.VERTICAL));
@@ -93,6 +106,7 @@ public class TimelineActivity extends AppCompatActivity {
         });
 
         populateHomeTimeline();
+        //maxId = tweets.get(tweets.size()-1).id;
 
         //setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -102,6 +116,21 @@ public class TimelineActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    // Append the next page of data into the adapter
+    // This method probably sends out a network request and appends new data items to your adapter.
+    public void loadNextDataFromApi(int offset) {
+        // Send an API request to retrieve appropriate paginated data
+
+        //  --> Send the request including an offset value (i.e `page`) as a query parameter.
+
+        //  --> Deserialize and construct new model objects from the API response
+
+        //  --> Append the new data objects to the existing set of items inside the array of items
+        //tweets.addAll();
+        //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
+        //adapter.notifyItemInserted(tweets.size());
     }
 
     @Override
