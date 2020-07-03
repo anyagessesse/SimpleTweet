@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimelineActivity">
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -26,14 +26,15 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTweets"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/dark_mode"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
